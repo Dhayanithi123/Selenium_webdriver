@@ -1,0 +1,39 @@
+package slrcp01;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Navigation;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+public class wh1 {
+@SuppressWarnings("deprecation")
+public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	 System.setProperty("WebDriver.Chrome.Driver","C:\\Users\\DHAYANITHI\\Desktop\\webdrive\\Chrome   driver latest  version\\chromedriver_win32 (1).exe");
+	 ChromeOptions options =new ChromeOptions();
+	 options.addArguments("--remote-allow-origins=*");
+	 WebDriver driver=new ChromeDriver(options);
+	 driver.manage().window().maximize();
+	 driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	 driver.get("https://www.google.com/");
+	 driver.findElement(By.xpath("//*[@name='q']")).sendKeys("Flipkart",Keys.ENTER);
+	 driver.findElement(By.xpath("//*[@class='LC20lb MBeuO DKV0Md']")).click();
+	 driver.findElement(By.xpath("//*[@class='_2KpZ6l _2doB4z']")).click();
+	 driver.findElement(By.xpath("//*[@class='_3704LK']")).sendKeys("ipad",Keys.ENTER);
+/*	 
+	 Select notfi=new Select(driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[1]/div[1]/div[2]/div[5]/div/svg/path")));
+	 notfi.selectByVisibleText("NOTIFICATION PREFERENCES");
+	*/
+	 driver.findElement(By.xpath("//div[text()='APPLE iPad (9th Gen) 64 GB ROM 10.2 inch with Wi-Fi Only (Space Grey)']")).click();
+	 for(String next_window: driver.getWindowHandles()) {
+	 driver.switchTo().window(next_window);
+	 }
+	 driver.findElement(By.xpath("//button[text()='Buy Now']")).click();
+	 driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[2]/div/div[1]/div[1]/div/div/div/div/div[1]/div/form/div[1]/input")).sendKeys("6383607735",Keys.ENTER);
+     driver.quit();
+}
+	
+	}
+
