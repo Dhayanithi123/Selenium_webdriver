@@ -22,10 +22,6 @@ public static void main(String[] args) {
 	 driver.findElement(By.xpath("//*[@class='LC20lb MBeuO DKV0Md']")).click();
 	 driver.findElement(By.xpath("//*[@class='_2KpZ6l _2doB4z']")).click();
 	 driver.findElement(By.xpath("//*[@class='_3704LK']")).sendKeys("ipad",Keys.ENTER);
-/*	 
-	 Select notfi=new Select(driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[1]/div[1]/div[2]/div[5]/div/svg/path")));
-	 notfi.selectByVisibleText("NOTIFICATION PREFERENCES");
-	*/
 	 driver.findElement(By.xpath("//div[text()='APPLE iPad (9th Gen) 64 GB ROM 10.2 inch with Wi-Fi Only (Space Grey)']")).click();
 	 for(String next_window: driver.getWindowHandles()) {
 	 driver.switchTo().window(next_window);
