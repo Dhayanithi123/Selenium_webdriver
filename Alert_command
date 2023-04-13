@@ -1,0 +1,32 @@
+package alertpart01;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class a01ANDimplicit
+{
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+ System.setProperty("webdriver.Chrome.Driver","C:\\Users\\DHAYANITHI\\Desktop\\webdrive\\chromedriver_win32\\chromedriver.exe");
+ WebDriver driver = new ChromeDriver() ;
+ driver.manage().window().maximize();
+ driver.manage().timeouts().implicitlyWait(10,TimeUnit. SECONDS); 
+ driver.get("https://www.leafground.com/alert.xhtml");
+ driver.findElement(By.xpath("//*[@id=\"j_idt88:j_idt91\"]")).click();
+ Alert a011=driver.switchTo().alert();
+ a011.accept();
+ driver.get("https://www.leafground.com/alert.xhtml");
+ driver.findElement(By.xpath("//*[@id=\"j_idt88:j_idt93\"]")).click();
+ Alert a012 = driver.switchTo().alert();
+ a012.dismiss();
+ driver.get("https://www.leafground.com/alert.xhtml");
+ driver.findElement(By.xpath("//*[@id=\"j_idt88:j_idt104\"]")).click();
+ Alert a013 =driver.switchTo().alert();
+ a013.sendKeys("hello");
+ a013.accept();
+ driver.findElement(By.xpath("//*[@id=\"j_idt88:j_idt95\"]")).click();
+ driver.findElement(By.xpath("//*[@id=\"j_idt88:j_idt101\"]/div[1]/a")).click();
+	}
+}
