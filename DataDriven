@@ -1,0 +1,40 @@
+package datadriven01;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
+public class dd01andExplicit {
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) throws BiffException, IOException {
+		// TODO Auto-generated method stub
+Sheet Book2 ;
+ System.setProperty("Webdriver.Chrome.driver","C:\\\\Users\\\\DHAYANITHI\\\\Desktop\\\\webdrive\\\\chromedriver_win32\\\\chromedriver.exe");
+ WebDriver dd01 =new ChromeDriver() ;
+ dd01.manage().window().maximize();
+ dd01.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS); 
+ FileInputStream fl011=new FileInputStream("C:\\Users\\DHAYANITHI\\Desktop\\dd\\Book2.xls");
+ Workbook dha=Workbook.getWorkbook(fl011);
+ Book2=dha.getSheet(0) ;
+ for(int row=1;row<Book2.getRows();row++) {
+ String username=Book2.getCell(0,row).getContents();
+ dd01.get("https://www.naukri.com/nlogin/login");
+ dd01.findElement(By.xpath("//*[@id=\"usernameField\"]")).sendKeys(username);
+ String password=Book2.getCell(1,row).getContents();
+ WebDriverWait nam01=new WebDriverWait(dd01,Duration.ofSeconds(25));
+ @SuppressWarnings("unused")
+ WebElement nam02=nam01.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"passwordField\"]")));
+ dd01.findElement(By.xpath("//*[@id=\"passwordField\"]")).sendKeys(password);
+	}
+	}
+}
+
