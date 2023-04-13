@@ -1,0 +1,22 @@
+package windowhandling1;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class wh01 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("WebDriver.Chrome.Driver","C:\\Users\\DHAYANITHI\\\\Desktop\\webdrive\\chromedriver_win32\\chromedriver.exe");
+			WebDriver driver =new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.get("https://www.leafground.com/window.xhtml;jsessionid=node010nx464jtc8vzxsmrg4fp0yu9138.node0");
+		    driver.findElement(By.xpath("//*[@id=\"j_idt88:new\"]")).click();
+			for(String wh01:driver.getWindowHandles()) {
+				driver.switchTo().window(wh01);
+			}
+			driver.findElement(By.xpath("//*[@id=\"menuform:j_idt38\"]/a")).click();
+			driver.findElement(By.xpath("//*[@id=\"menuform:m_auth\"]/a")).click();
+			driver.quit();
+			}
+		}
+
+
