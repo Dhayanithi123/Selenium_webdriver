@@ -1,0 +1,24 @@
+package explicitaANDimplicit;
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+public class exp01 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+  System.setProperty("Webdriver.Chrome.Driver","C:\\Users\\DHAYANITHI\\Desktop\\webdrive\\chromedriver_win32\\chromedriver.exe");
+  WebDriver driver=new ChromeDriver();
+  driver.manage().window().maximize();
+  driver.get("https://www.google.com/search?q=car+image&source=lmns&bih=577&biw=1229&hl=en&sa=X&ved=2ahUKEwiHmeCRgNr7AhXpjtgFHbEiCagQ_AUoAHoECAEQAA");
+  driver.findElement(By.xpath("//*[@id=\"hdtb-msb\"]/div[1]/div/div[2]/a")).click();
+  WebDriverWait nam01=new WebDriverWait(driver,(Duration.ofSeconds(12)));
+  @SuppressWarnings("unused")
+WebElement nam02=nam01. 
+              until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Sva75c\"]/div/div/div[2]/div[2]/div[2]/c-wiz/div[2]/div[1]/div[3]/div[1]/a[2]/div/span")));
+  driver.findElement(By.xpath("//*[@id=\"Sva75c\"]/div/div/div[2]/div[2]/div[2]/c-wiz/div[2]/div[1]/div[3]/div[1]/a[2]/div/span")).click();
+	}
+
+}
